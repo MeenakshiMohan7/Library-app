@@ -24,7 +24,7 @@ const nav= [
 
 const loginRouter = require('./src/routes/loginroute');
 const signupRouter = require('./src/routes/signuproute');
-const homeRouter = require('./src/routes/homerouter');
+const homeRouter = require('./src/routes/homeroute');
 const booksRouter = require('./src/routes/booksroute');
 const authorsRouter = require('./src/routes/authorsroute');
 
@@ -58,5 +58,5 @@ app.get('/',function(req,res){
 
 
 app.listen(5000,()=>{
-    console.log("Server Ready on 3000");
+    console.log("Server Ready on 5000");
 });

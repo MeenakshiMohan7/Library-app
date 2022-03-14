@@ -8,6 +8,7 @@
     "cors": "^2.8.5",
     "ejs": "^2.7.4",
     "express": "^4.17.1",
+    "mongodb": "^4.4.1",
     "mongoose": "^5.7.12"
   },
   "scripts": {
