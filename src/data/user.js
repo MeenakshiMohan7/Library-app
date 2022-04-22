@@ -1,19 +1,17 @@
 var users=[{
     "id":1,
-    "uid":"aiswaryawalter@gmail.com",
-    "pwd":"aiswarya"
-},
+    "userid":"aiswaryawalter@gmail.com",
+    "pwdid":"Aisw@rya1"},
 {
     "id":2,
-    "uid":"surya@gmail.com",
-    "pwd":"surya"
+    "userid":"surya@gmail.com",
+    "pwdid":"surya"
 },
 {
     "id":3,
-    "uid":"bazith@gmail.com",
-    "pwd":"bazith"
-}
-]
+    "userid":"bazith@gmail.com",
+    "pwdid":"bazith"
+}]
 
 
 module.exports=users;

@@ -1,16 +1,15 @@
 body{
-    background-image: url('../images/bg3.jpg');
-    background-size: cover;
-    
+
+    overflow:hidden;
+    text-decoration: none;
     
   }
 
-.navbar{
-    background:rgb(0, 0, 0);
-    opacity: .75;
-    
+  .navbar{
+    background:#47362b;
+    opacity: .69;
     width:100%;
-      
+    height: 20%;    
 }
 
 h1{
@@ -52,17 +51,35 @@ button{
 
 
 footer{
-    
     color: white;
     background: black;
-    opacity:.75 !important;
-    
-}
-a{
-    color: white;
-    text-decoration: none !important;
+    opacity:.75;
 }
 
-a:hover{
-    color: white;
+footer a{
+color: white;
 }
+
+a{
+    color: rgb(0, 70, 128);
+}
+
+/* a:hover{
+    color:rebeccapurple;
+} */
+
+#myform {
+    height: 20%;
+    position: fixed;
+    background: none !important; 
+    box-shadow: none !important;
+    color: beige;
+    padding-top: 0px !important;
+}
+
+.form-control label {
+    color: beige;
+}
+
+
+

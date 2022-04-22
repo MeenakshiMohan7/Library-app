@@ -1,62 +1,60 @@
-const express = require('express'); 
-const path = require ('path'); 
-const cors = require('cors');
-const bodyParser = require('body-parser');
+    const express = require("express");
+    const app = new express();
+    // Defining different Navigations for user, admin and Authentication page
+    const nav = [
+        {link:'/newhome',name:'Home'},
+        {link:'/newhome/books',name:'Books'},
+        {link:'/newhome/authors',name:"Authors"},
+        {link:'/login',name:"Log Out"},
+    ];
+    const navauth =[
+        {link:'/signup',name:"Sign Up"},
+        {link:'/login',name:"Log In"}
+    ];
 
-const nav= [
-    {
-        link:"/books",
-        title:"Books"
-    },
-    {
-        link:"/authors",
-        title:"Authors"
-    },
-    {
-        link:"/addbook",
-        title:"Add Book"
-    },
-    {
-        link:"/addauthor",
-        title:"Add Author"
-    }
-]
-
-const loginRouter = require('./src/routes/loginroute');
-const signupRouter = require('./src/routes/signuproute');
-const homeRouter = require('./src/routes/homeroute');
-const booksRouter = require('./src/routes/booksroute');
-const authorsRouter = require('./src/routes/authorsroute');
-
-const app = new express; 
-
-
-
-app.set('view engine','ejs'); 
-app.set('views','./src/views'); 
-
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.json());
-app.use(express.static(path.join(__dirname , '/public'))); 
-
-app.use('/login',loginRouter); 
-app.use('/signup',signupRouter); 
-app.use('/home',homeRouter); 
-app.use('/books',booksRouter); 
-app.use('/authors',authorsRouter); 
+    const adminnav =[
+        {link:'/home',name:'Home'},
+        {link:'/books',name:'Books'},
+        {link:'/authors',name:"Authors"},
+        {link:'/addBook',name:"Add Book"},
+        {link:'/addAuthor',name:"Add Author"},
+        {link:'/login',name:"Log Out"}
+    ]
+    // Acquiring all the routes defined
+    const booksRouter =require("./src/routes/bookRoutes")(adminnav)
+    const authorRouter =require("./src/routes/authorRoutes")(adminnav)
+    const addauthorRouter =require("./src/routes/addauthorRoutes")(adminnav)
+    const addbookRouter =require("./src/routes/addbookRoutes")(adminnav)
+    const homeRouter = require('./src/routes/homeRoutes') (adminnav)
+    const signupRouter =require("./src/routes/signupRoutes")(navauth)
+    const loginRouter =require("./src/routes/loginRoutes")(navauth)
+    const newuserRouter = require('./src/routes/newuserRoutes')(nav)
+    const newuserBookRouter = require('./src/routes/addbookRoutes')(nav)
+    const newuserAuthorRouter = require('./src/routes/authorRoutes')(nav)
 
 
-
-app.get('/',function(req,res){
-
-    res.render('index',{});
+    app.use(express.static('./public'))
+    app.use(express.urlencoded({extended:true}));
+    app.set('view engine','ejs');
+    app.set("views",__dirname+"/src/views");
     
-});
-
-
-
-
-
-app.listen(5000,()=>{
-    console.log("Server Ready on 5000");
-});
+    app.use('/signup',signupRouter);
+    app.use('/login',loginRouter);
+    app.use('/books',booksRouter);
+    app.use('/authors',authorRouter);
+    app.use('/addAuthor',addauthorRouter);
+    app.use('/addBook',addbookRouter);
+    app.use('/home',homeRouter); 
+    // Router for New Users
+    app.use('/newhome',newuserRouter); 
+    app.use('/newhome/books',newuserBookRouter); 
+    app.use('/newhome/authors',newuserAuthorRouter); 
+    
+    
+    app.get('/',(req,res)=>{
+        res.render("index",{title:'MyLibraryApp',navauth});
+    });
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+    console.log(`Our Library app is running on http://localhost:${PORT}`);
+    });

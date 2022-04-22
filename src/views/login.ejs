@@ -4,24 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pustakam</title>
-
+    <title>MyLibraryApp</title>
     <script src="https://kit.fontawesome.com/859e7ab76e.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
    
     <link rel='stylesheet' href='css/login.css'>
-
+    <link rel='stylesheet' href='css/form.css'>
+<!-- Website Icon -->
+<!-- <link rel="icon" href="../images/index-pic.jpg" type="image/x-icon" /> -->
 </head>
-<body>
+<body style="background-image: url('../images/index-pic.jpg');">
 
 
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="/">Pustakam.Com</a>
+        <!-- <a class="navbar-brand" href="/">Library Application</a> -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/login" style="color: white; font-size: 18px; ">Log In
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/signup" style="color: white; font-size: 18px; ">Sign Up</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/" style="color: white; font-size: 18px; ">Home</a>
+            </li>
+
+    
+        </ul>
       
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -33,18 +49,19 @@
         <div class="collapse navbar-collapse" id="basicExampleNav">
       
           <!-- Links -->
-          <ul class="navbar-nav ml-auto">
+          <!-- <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/login">Log In
+              <a class="nav-link" href="#">Log In
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="/signup">Sign Up</a>
             </li>
+            
 
       
-          </ul>
+          </ul> -->
           <!-- Links -->
       
 
@@ -52,97 +69,180 @@
         <!-- Collapsible content -->
       
     </nav>
-    <!--Navbar end-->
 
 
-    <!-- modal start -->
-    <div class='modal-dialog text-center mx-auto'>
-        <div class='col-sm-7 main-section'>
-          <div class="modal-content">
-
-            <div class="col-12 user-img">
-              <img src='images/face.png'>
-            </div>
-            <br>
-
-            <form class='col-12' action="/login/check" onsubmit="return validate()" method="GET">
-
-              <div class="form-group">
-                <input id="uid" name="uid" class='form-control' type="email" placeholder="Enter Username(email id)" id="mail" required>
-                <label for="email" id="feedback" style="color:red; visibility:hidden">Enter valid e-mail id</label>
-
-              </div>
-
-
-
-              <div class="form-group">
-                  <input id="pwd" name="pwd" class='form-control' type="password" placeholder="Enter Password" id="pwd" required>
-                  <label for="pwd" id="feedback2" style="color:red; visibility:hidden">Password should be minimum 8 characters</label>
-              </div>
-
-              <button id="login" name="login" type="submit" class="btn btn-success text-center"><i class="fas fa-sign-in-alt"></i>Log in</button>
-            </form>
-            
-          </div>
-          <!-- modal content end-->
+    <div class="container-fluid">
+      <div class="row">
+        
+        <div class="col-md-12"> 
           
-        </div>
-
-
+          <div class="panel">
+            <div class="panel-body">
+              
+              
+              
+              <!--/stories-->
+              <div class="container-fluid text-center m-5 p-5">
+    
+                <div class="container text-center col-6 mt-5" id="myform">
+                  <h2>Log In</h2>
+                  <br>
+                  <form id="form" method ='GET' action ="/login/check" 
+                  style="background: black; padding: 0% 0% 5% 0%;"
+                  onsubmit="return validate()" class="form">
+                      
+                      <div class="mb-3 form-control">
+                        <label for="username">Username</label>
+                        <input type="email" placeholder="Enter Email" id="email" name="userid"  autocomplete="off" accept="text/plain"/>
+                        <small>Error message</small>
+                      </div>
+                      <br>
+                      <div class="mb-3 form-control">
+                          <label for="Password">Password</label>
+                          <input type="password" placeholder="Password" id="password" name="pwdid" class="passwordInput" autocomplete="off"/>
+                          <small>Error message</small>
+                      </div>
+                      <br>
+                      <br>
+                      <button class="btn from-center" id ='load' type="submit" name="submitButton"
+                      style="width: 30%; margin-left: 37%;">Submit</button>
+                  </form>
+              
+                  <!-- <p class="para-2">
+                      Don't have an account? <a href="./signup"><b>Sign Up Here</b></a>
+                      <br>
+                      <small>For Admin access use Email as <i>admin@domain.com</i> and Password as <i>Admin@1234</i> </small>
+                  </p>
+                  <br> -->
+                </div>
+            
+              </div>
+              
+              <!--/stories-->
+              
+              
+              <!-- <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a> -->
+            
+              
+            </div>
+          </div>
+                                                                                           
+                                                      
+                                                          
+         </div><!--/col-12-->
+      </div>
     </div>
-    <!-- modal end -->
 
     <br>
 
 
     <!-- Footer -->
-    <footer class="page-footer font-small unique-color-dark pt-2 fixed-bottom">
+    <!-- <footer class="page-footer font-small unique-color-dark pt-2 fixed-bottom"> -->
 
 
       
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2019 Copyright:
-          <a href="/"> Pustakam.com</a>
-        </div>
+        <!-- <div class="footer-copyright text-center py-3">© 2022 Copyright:
+          <a href="/"> MyLibraryApp</a>
+        </div> -->
         <!-- Copyright -->
   
-    </footer>
+    <!-- </footer> -->
     <!-- Footer end-->
 
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
               
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <script src="js/login.js"></script>
+            <script>
+const email = document.getElementById('email');
+const password = document.getElementById('password');
 
-    <!-- <script>
-      $("#login").click(function(e){
-          e.preventDefault();
-          alert("Are you sure you want to log in?");
-          
-          const data = {
-              "uid": $('#uid').val(),
-              "pwd": $('#pwd').val(),
-      
-          }
-      
-        $.ajax
-        ({
-          url: `/login/check`,
-        method:'post', 
-        data:JSON.stringify(data),
-        contentType:"application/json",
-        success: function(result){
-            alert("new author added successfully");
-          window.location = "/authors";
-          console.log(result);
-          }
-          });
+function validate() {
+	// trim to remove the whitespaces
+	
+	const emailValue = email.value.trim();
+	const passwordValue = password.value.trim();
 
-        });
+	var alpha= /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+	var space =/[\s]+/;
 
-  </script> -->
+	if(emailValue === '') {
+		setErrorFor(email, 'Email cannot be blank');
+        return false;
+	} else if (!isEmail(emailValue)) {
+		setErrorFor(email, 'Not a valid email');
+        return false;
+	} else {
+		setSuccessFor(email);
+        console.log('Bingo1');
+        if(passwordValue != '')
+		 	{
+            if(passwordValue.length <8) {
+                setErrorFor(password, 'Atleast 8 characters are required');
+                return false;
+            }   else if (password.value.match(space)) 
+            {
+                setErrorFor(password, 'Remove spaces');
+                return false;
+            } 
+            else if(passwordValue.match(alpha)) 
+	        {
+                setSuccessFor(password);
+                console.log('Bingo2');
+                return true;
+	        } 
+            else {
+                setErrorFor(password, 'Please add atleast one special characters and use numbers, uppercase and lowercase.');
+				return false;
+                
+            }
+            
+        } 
+        else{
+            setErrorFor(password, 'Re-enter correct password. Password cannot be blank');
+            return false;
+        }
+
+	}
+
+	
+}
+
+function setErrorFor(input, message) {
+	const formControl = input.parentElement;
+	const small = formControl.querySelector('small');
+	formControl.className = 'form-control error';
+	small.innerText = message;
+}
+
+function setSuccessFor(input) {
+	const formControl = input.parentElement;
+	formControl.className = 'form-control success';
+    
+}
+	
+function isEmail(email) 
+{
+	return /^([\w\.-]+)@([\w\-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/.test(email);
+}
+
+// Toggle Effect
+
+  document.querySelector(".form-control .pw-display-toggle-btn").addEventListener("click",function(){
+	let el = document.querySelector(".form-control .pw-display-toggle-btn");
+	if(el.classList.contains("active")){
+	  document.querySelector(".form-control #password").setAttribute("type","password");
+	  el.classList.remove("active");
+	} else {
+	  document.querySelector(".form-control #password").setAttribute("type","text");
+	  el.classList.add("active");
+	}
+  });
+
+        </script>
 
 </body>
 </html>

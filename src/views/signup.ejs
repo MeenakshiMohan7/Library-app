@@ -4,20 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pustakam</title>
+    <title>MyLibraryApp</title>
     <script src="https://kit.fontawesome.com/859e7ab76e.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
     <link rel='stylesheet' href='css/signup.css'>
+    <link rel='stylesheet' href='css/form.css'>
+    <!-- Website Icon -->
+ <link rel="icon" href="../images/Scenery.jpg" type="image/x-icon" />
 </head>
-<body>
+<body style="background-image: url('../images/index-pic.jpg');">
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
 
             <!-- Navbar brand -->
-            <a class="navbar-brand" href="/">Pustakam.Com</a>
+            <!-- <a class="navbar-brand" href="/">Library Application</a> -->
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+				  <a class="nav-link" href="/login" style="color: white; font-size: 18px; ">Log In
+					<span class="sr-only">(current)</span>
+				  </a>
+				</li>
+				<li class="nav-item active">
+				  <a class="nav-link" href="/signup" style="color: white; font-size: 18px; ">Sign Up</a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="/" style="color: white; font-size: 18px; ">Home</a>
+				  </li>
+	  
+		  
+			  </ul>
           
             <!-- Collapse button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -29,20 +47,19 @@
             <div class="collapse navbar-collapse" id="basicExampleNav">
           
               <!-- Links -->
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="/login">Log In
+              <!-- <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Log In
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="/signup">Sign Up</a>
-                </li>
+                
 
         
           
-              </ul>
+              </ul> -->
               <!-- Links -->
+			  
           
 
             </div>
@@ -52,100 +69,313 @@
     <!--Navbar-->
     
 
-    <!-- Material form register -->
-    <div class="card mx-auto container">
+          <!--/stories-->
+          <div class="container-fluid text-center p-5">
 
-
-        
-            <h3 class="card-header info-color white-text text-center py-4">
-                <strong>Sign Up</strong>
-            </h3><br>
-        
-            <!--Card content-->
-            <div class="card-body px-lg-5 pt-0">
-        
-                <!-- Form -->
-                <form class="text-center" action="/signup/adduser" style="color: #757575;" onsubmit="return validate()">
-        
-                    <div class="form-row">
-                        <div class="col">
-                            <!-- First name -->
-                            <div class="md-form">
-                                <label for="fname">First name</label>
-                                <input type="text" id="fname" class="form-control" required>
-                                <label for="fname" id="fnamefeedback" style="color:red; visibility:hidden">Should contain only alphabets.</label>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <!-- Last name -->
-                            <div class="md-form">
-                                <label for="lname">Last name</label>   
-                                <input type="text" id="lname" class="form-control" required>
-                                <label for="lname" id="lnamefeedback" style="color:red; visibility:hidden">Should contain only alphabets.</label>
-                         </div>
-                        </div>
-                    </div>
-        
-                    <!-- E-mail -->
-                    <div class="md-form mt-0">
-                        <label for="email">E-mail</label>
-                        <input id="uid" name="uid" type="email" id="email" class="form-control" required>
-                        <label for="email" id="emailfeedback" style="color:red; visibility:hidden">Enter valid e-mail id.</label>
-
-                    </div>
-        
-
-        
-
-        
-                    <!-- Password -->
-                    <div class="md-form mt-0">
-                        <label for="pwd">Password</label>
-                        <input id="pwd" name="pwd" type="password" id="pwd" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" required>
-                        <label for="pwd" id="pwdfeedback" style="color:red; visibility:hidden">Password should be minimum 8 characters</label>
-        
-                    </div>
-              
-                    <!-- Sign up button -->
-                    <!-- <button class="btn btn-outline-info btn-rounded  my-4 waves-effect z-depth-0" type="submit">Sign Up</button> -->
-                    <button id="signup" name="signup" type="submit" class="btn btn-success text-center">Sign Up</button>
-                    <br>
-        
-                    
-                    <!-- Terms of service -->
-                    <p>By clicking
-                        <em>Sign Up</em> you agree to our
-                        <a href="#" >terms of service</a>
-        
-                </form>
-                <!-- End of Form -->
-        
-            </div>
-        
-
-    </div>
-    <!-- End of Material form register -->
+            <div class="container-fluid text-center col-6 mt-5" id="myform">
+                  <h2>Sign Up</h2>
+                  <form method="GET" action="/signup/adduser" 
+				  id="form" class="form align-items-center"
+				  style="background: black; padding: 0% 0% 5% 0%;"  onsubmit="return validate()">
+                      <div class="flex-container" >
+                          <div class="flex-child form-control">
+                            <br>
+                              <label for="firstname">First Name</label>
+                              <input type="text" placeholder="Enter your First Name" id="firstname" name="name" autocomplete="off"/>
+                              <i class="fas fa-check-circle"></i>
+                              <i class="fas fa-exclamation-circle"></i>
+                              <small>Error message</small>
+                          </div>
+                          <div class="flex-child form-control">
+                            <br>
+                              <label for="lastname">Last Name</label>
+                              <input type="text" placeholder="Enter your Last Name" id="lastname"name="lname" autocomplete="off" />
+                              <i class="fas fa-check-circle"></i>
+                              <i class="fas fa-exclamation-circle"></i>
+                              <small>Error message</small>
+                          </div>
+                      </div>
+                      <br>
+                      <br>
+                      <div class="mb-3 form-control">
+                          <label for="Email">Email</label>
+                          <input type="email" placeholder="Enter your Email" id="email" name="userid" autocomplete="off"/>
+                          <i class="fas fa-check-circle"></i>
+                          <i class="fas fa-exclamation-circle"></i>
+                          <small>Error message</small>
+                      </div>
+                     <br>
+                      <div class="mb-3 form-control">
+                          <label for="Password">Password</label>
+                          <input type="password" placeholder="Password" id="password" name="pwdid" autocomplete="off"/>
+                          <div class="pw-display-toggle-btn">
+                          <i class="fas fa-eye" id ="myEye" ></i>
+                          <i class="fas fa-eye-slash" id ="myEye" ></i>
+                          </div>
+                          <div class="pw-strength">
+                              <span>Weak</span>
+                              <span></span>
+                          </div>
+                          <small>Error message</small>
+                          <br>
+                      </div>
+                   <br>
+                   <br>
+                      <button type="submit" name="submitButton"
+					  style="width: 30%; margin-left: 37%;">Submit</button>
+                  </form>
+  
+          </div>
+                
+          </div>
+          <!--/stories-->
 
     <br>
 
 
     <!-- Footer -->
-    <footer class="page-footer font-small blue fixed-bottom">
+    <!-- <footer class="page-footer font-small blue fixed-bottom"> -->
 
             <!-- Copyright -->
-            <div class="footer-copyright text-center text-white py-3">© 2019 Copyright:
-            <a href="/"> Pustakam.com</a>
-            </div>
+            <!-- <div class="footer-copyright text-center text-white py-3">© 2022 Copyright:
+            <a href="/"> MyLibraryApp</a>
+            </div> -->
             <!-- Copyright end -->
     
             
-    </footer>
+    <!-- </footer> -->
     <!-- Footer End-->
 
     <script src="js/signup.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+       <script>
+      const form = document.getElementById('form');
+const firstname = document.getElementById('firstname');
+const lastname = document.getElementById('lastname');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const password2 = document.getElementById('password2');
+const phone = document.getElementById('phone');
 
+
+function validate() {
+	// trim to remove the whitespaces
+	const firstnameValue = firstname.value.trim();
+	const lastnameValue = lastname.value.trim();
+	const emailValue = email.value.trim();
+	const passwordValue = password.value.trim();
+	
+	var alpha= /^[a-zA-Z]+/;
+    var num = /[0-9]+/;
+	var space =/[\s]+/;
+
+    // First Name Validation
+
+    if(firstnameValue === '' || (firstnameValue.length<=2)) 
+	{
+		setErrorFor(firstname, 'Firstname should be more than 2 alphabets');
+		return false;
+	}
+	
+	else if (firstnameValue.length>20) 
+	{
+		setErrorFor(firstname, 'Firstname should be less than 20 alphabets');
+				return false;
+	}
+	else if(!firstnameValue.match(alpha))  
+	{
+			setErrorFor(firstname, 'Remove special characters');
+					return false;
+	} 
+    else if(firstname.value.match(space))
+	{
+			setErrorFor(firstname, 'Remove Spaces');
+					return false;
+	} 
+    else if(firstnameValue.match(num))
+	{
+			setErrorFor(firstname, 'Remove numbers');
+					return false;
+	} 
+	
+	else 
+	{
+		setSuccessFor(firstname);
+
+                // Last Name Validation
+
+				if(lastnameValue === '' || (lastnameValue.length<=2))
+				{
+				setErrorFor(lastname, 'Lastname should more than 2 alphabets');
+						return false;
+
+				}  
+				
+				else if (lastnameValue.length>20) 
+				{
+					setErrorFor(lastname, 'Lastname should be less than 20 alphabets');
+							return false;
+				}
+				else if(!lastnameValue.match(alpha))
+				{
+					setErrorFor(lastname, 'Remove special characters');
+							return false;
+
+				} 
+                else if(lastname.value.match(space)) 
+				{
+					setErrorFor(lastname, 'Remove spaces');
+							return false;
+
+				} 
+                else if(lastnameValue.match(num))
+				{
+					setErrorFor(lastname, 'Remove numbers');
+							return false;
+
+				} 
+				
+				else 
+				{
+					setSuccessFor(lastname);
+
+                    // Email Validation
+
+					if(emailValue === '') 
+					{
+						setErrorFor(email, 'Email cannot be blank');
+								return false;
+
+					}
+                    else if (email.value.match(space)) 
+					{
+						setErrorFor(email, 'Remove spaces');
+								return false;
+
+					}
+                     else if (!isEmail(emailValue)) 
+					{
+						setErrorFor(email, 'Not a valid email');
+								return false;
+
+					}
+                     else 
+					{
+						setSuccessFor(email);
+
+                                
+
+										if(passwordValue === '') 
+										{
+											setErrorFor(password, 'Password cannot be blank');
+													return false;
+
+										}
+										else if(password.value.match(space)) 
+										{
+											setErrorFor(password, 'Remove spaces');
+													return false;
+
+										} 
+                                        else if(passwordValue.length  <8) 
+                                        {
+											setErrorFor(password, 'Atleast 8 characters are required');
+													return false;
+
+										} 
+										 else 
+										{
+											setSuccessFor(password);
+
+												return true;
+
+											}
+										}
+									}
+					}
+				}
+	
+
+function setErrorFor(input, message) {
+	const formControl = input.parentElement;
+	const small = formControl.querySelector('small');
+	formControl.className = 'form-control error';
+	small.innerText = message;
+}
+
+function setSuccessFor(input) {
+	const formControl = input.parentElement;
+	formControl.className = 'form-control success';
+}
+	
+function isEmail(email) 
+{
+	return /^([\w\.-]+)@([\w\-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/.test(email);
+}
+
+
+
+// Password strength
+
+function getPasswordStrength(password){
+	let s = 0;
+	if(password.length > 6){
+	  s++;
+	}
+	if(password.length > 8){
+	  s++;
+	}
+	if(/[A-Z]/.test(password)){
+	  s++;
+	}
+	if(/[0-9]/.test(password)){
+	  s++;
+	}
+	if(/[^A-Za-z0-9]/.test(password)){
+	  s++;
+	}
+	return s;
+  }
+  document.querySelector(".form-control #password").addEventListener("focus",function(){
+	document.querySelector(".form-control .pw-strength").style.display = "block";
+  });
+
+
+  document.querySelector(".form-control .pw-display-toggle-btn").addEventListener("click",function(){
+	let el = document.querySelector(".form-control .pw-display-toggle-btn");
+	if(el.classList.contains("active")){
+	  document.querySelector(".form-control #password").setAttribute("type","password");
+	  el.classList.remove("active");
+	} else {
+	  document.querySelector(".form-control #password").setAttribute("type","text");
+	  el.classList.add("active");
+	}
+  });
+  
+  
+  
+  document.querySelector(".form-control #password").addEventListener("keyup",function(e){
+	let password = e.target.value;
+	let strength = getPasswordStrength(password);
+	let passwordStrengthSpans = document.querySelectorAll(".form-control .pw-strength span");
+	strength = Math.max(strength,1);
+	passwordStrengthSpans[1].style.width = strength*20 + "%";
+	if(strength < 2){
+	  passwordStrengthSpans[0].innerText = "Weak";
+	  passwordStrengthSpans[0].style.color = "#111";
+	  passwordStrengthSpans[1].style.background = "#d13636";
+	} else if(strength >= 2 && strength <= 4){
+	  passwordStrengthSpans[0].innerText = "Medium";
+	  passwordStrengthSpans[0].style.color = "#111";
+	  passwordStrengthSpans[1].style.background = "#e6da44";
+	} else {
+	  passwordStrengthSpans[0].innerText = "Strong";
+	  passwordStrengthSpans[0].style.color = "#fff";
+	  passwordStrengthSpans[1].style.background = "#20a820";
+	}
+  });
+
+    </script>
 
   
 

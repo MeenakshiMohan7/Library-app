@@ -1,133 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pustakam</title>
-
-    <script src="https://kit.fontawesome.com/859e7ab76e.js" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-    
-
-    <link rel='stylesheet' href='css/books.css'>
-</head>
-<body>
-
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
-
-            <!-- Navbar brand -->
-            <!-- <a class="navbar-brand" href="/home"><i class="fas fa-home"></i></a> -->
-            <a class="navbar-brand" href="/home">Pustakam.Com</a>
-          
-            <!-- Collapse button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-              aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <!-- Collapsible content -->
-            <div class="collapse navbar-collapse" id="basicExampleNav">
-          
-              <!-- Links -->
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="/authors">Authors
-                    <span class="sr-only">(current)</span>
-                  </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="/books">Books</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/books/addbook">Add Book</a>
-                </li>
-                <li class="nav-item active">
-                      <a class="nav-link" href="/authors/addauthor">Add Author</a>
-                </li>
-
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><%=title%></title>
+		<!-- <title>Storystrap Template</title> -->
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+    <link href="/css/back.css" rel="stylesheet">
+<!-- Website Icon -->
+<link rel="icon" href="../images/Scenery.jpg" type="image/x-icon" />
+	</head>
+  
+	<body style="background-image: url('../images/home-pic.jpg');">
+<header class="navbar navbar-expand-lg navbar-bright navbar-fixed-top" role="banner"
+style="background:#47362b; opacity: .69; width:100%; height: 10%;">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation" >
+      <ul class="nav navbar-nav" >
+        <%for(i=0;i<nav.length;i++){%> 
+        <li>
+          <a href="<%=nav[i].link%>" style="color: white; font-size: 18px; "><%=nav[i].name%></a>
+        </li>
+        <%}%>
         
-          
-              </ul>
-              <!-- Links -->
-          
-              <form class="form-inline">
-                <div class="md-form my-0">
-                  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                </div>
-              </form>
-            </div>
-            <!-- Collapsible content -->
-          
+      </ul>
+
     </nav>
-    <!--Navbar end-->
-    
-    <h1 class="display-2 bg-img text-white bg-overlay text-center">Books</h1>
+  </div>
+</header>
 
-
-
-
-   
-
-    <section class="deck">
-
-        <%for(let i=0;i<books.length;i++){%>
-            <div class="container py-3">
-              <div class="card">
-                <div class="row ">
-                  <div class="col-md-4 pic">
-                      <img class="rounded-circle"  src="/images/<%=books[i].image%>" class="w-100">
-                    </div>
-                    <div class="col-md-8 px-3 about">
-                      <div class="card-block px-3">
-                        <h4 class="card-title"><%=books[i].title%></h4>
-                        Author : <%=books[i].author%>
-                        <hr>
-                        <!-- <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> -->
-
-                        <a href="/books/<%=books[i]._id%>" class="btn btn-info btn-sm">Read More</a>
-                      </div>
-                    </div>
-          
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <%}%> 
-    </section>
-
- 
-
-<br>
-
-
-    <!-- Footer -->
-    <footer class="page-footer font-small blue ">
-
-            <!-- Copyright -->
-            <div class="footer-copyright text-center text-white py-3">© 2019 Copyright:
-            <a href="/home"> Pustakam.com</a>
-            </div>
-            <!-- Copyright -->
+<!-- <div id="masthead">   -->
+  <!-- <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>Books
+          <p class="lead"></p>
+        </h1>
         
-    </footer>
-    <!-- Footer end-->
+      </div>
+      
+    </div> 
+  </div> -->
+  
+<!-- </div> -->
+
+
+<div class="container" style="padding-top: 5%;" >
+  <div class="row" >
     
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div  style="background-color: transparent;">
+          
+          
+          
+          <!--/stories-->
+          <%for(i=0;i<books.length;i++){%>
 
-
-
-
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+           
+            <div class="row">    
+              <br>
+              <!-- <div style="padding-left: 5%;"> -->
+                <!-- <a class="story-title" href="#">
+                
+                  <img src="/images/<%=books[i].image%>" type="file" style="width:100px;height:100px" class="img-circle">
               
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
- 
-</body>
+                </a> -->
+                
+                 
+                   
+              <!-- </div> -->
+             
+             
+              <div class="col-md-10 col-sm-9 ">
+                <h3><%=books[i].title%></h3>
+                <div class="row">
+                  <div class="col-xs-9">
+                    <h4><span class="label label-default"><%=books[i].author%></span></h4><h4>
+                    <small style="font-family:courier,'new courier';" class="text-muted"  ><%=books[i].genre%> 
+                      <% if(user) { %>
+                      <a href="/books/<%=books[i]._id%>" class="text-muted">| Read More</a></small>
+                      <%} else { %>
+                        <a href="/newhome/books/<%=books[i]._id%>" class="text-muted">| Read More</a></small>
+                        <% } %>
+                    </h4></div>
+                  <div class="col-xs-3"></div>
+                </div>
+                <br><br>
+              </div>
+              
+               
+            </div>
+            <%}%>
+          
+          <!--/stories-->
+      
+        </div>
+      </div>
+                                                                                       
+	                                                
+                                                      
+   	</div><!--/col-12-->
+  </div>
+</div>
+                                                
+                                                                                
+
+
+<!-- <div class="container" id="footer">
+  <div class="row">
+    <div class="col col-sm-12">
+      
+      <h1>Follow Us</h1>
+      <div class="btn-group">
+       <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+	   <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+	   <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+      </div>
+      
+    </div>
+  </div>
+</div> -->
+
+
+
+<!-- Footer -->
+<!-- <footer class="page-footer font-small unique-color-dark pt-2 fixed-bottom">
+
+  <!-- Copyright -->
+  <!-- <div class="footer-copyright text-center py-3">© 2022 Copyright:
+    <a href="/home"> MyLibraryApp</a>
+  </div> -->
+  <!-- Copyright -->
+
+</footer> -->
+<!-- Footer end -->
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
 </html>

@@ -1,37 +1,29 @@
 body{
-    background-image: url('../images/bg3.jpg');
-    background-size: cover;
-    
+    background-size: cover;  
+    min-height: 100%;
     
   }
-
+  html{
+    height: 100%;
+  }
 .navbar{
-    background:rgb(0, 0, 0);
-    opacity: .75;
-    width:100%;    
+    background:#47362b;
+    opacity: .69;
+    width:100%;
+    height: 20%;    
 }
 
+.navbar li a:hover{
+    /* background-color:rgba(32, 19, 19, 0.842) ; */
+    border-radius: 10px ;
 
+}
 
 .carousel-item{
 
     height: 100vh;
     min-height: 500px;
     background: no-repeat center center scroll;
-    background-size: cover;
-    
-    
-    
-
-    /* height:500px;
-    margin-top: 100px;
-    padding-bottom: 75px;
-    padding-left: 75px;
-    padding-right: 75px; */
-    /* min-height: 500px; */
-    background: no-repeat center center scroll;
-    background-size: cover;
-    /* opacity: 50%; */
     
 }
 
@@ -52,17 +44,17 @@ body{
 }
 
 footer{
-    
-    color: white;
-    background: black;
-    opacity:.75 !important;
+    margin-top: auto;
+    /* color: white; */
+    /* background: black; */
+    /* opacity:.75; */
     
 }
 a{
     color: white;
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 a:hover{
-    color: white;
+    color: rgb(92, 115, 216);
 }
