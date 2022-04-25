@@ -80,7 +80,7 @@
                       <div class="flex-container" >
                           <div class="flex-child form-control">
                             <br>
-                              <label for="firstname">First Name</label>
+                              <!-- <label for="firstname">First Name</label> -->
                               <input type="text" placeholder="Enter your First Name" id="firstname" name="name" autocomplete="off"/>
                               <i class="fas fa-check-circle"></i>
                               <i class="fas fa-exclamation-circle"></i>
@@ -88,7 +88,7 @@
                           </div>
                           <div class="flex-child form-control">
                             <br>
-                              <label for="lastname">Last Name</label>
+                              <!-- <label for="lastname">Last Name</label> -->
                               <input type="text" placeholder="Enter your Last Name" id="lastname"name="lname" autocomplete="off" />
                               <i class="fas fa-check-circle"></i>
                               <i class="fas fa-exclamation-circle"></i>
@@ -98,7 +98,7 @@
                       <br>
                       <br>
                       <div class="mb-3 form-control">
-                          <label for="Email">Email</label>
+                          <!-- <label for="Email">Email</label> -->
                           <input type="email" placeholder="Enter your Email" id="email" name="userid" autocomplete="off"/>
                           <i class="fas fa-check-circle"></i>
                           <i class="fas fa-exclamation-circle"></i>
@@ -106,7 +106,7 @@
                       </div>
                      <br>
                       <div class="mb-3 form-control">
-                          <label for="Password">Password</label>
+                          <!-- <label for="Password">Password</label> -->
                           <input type="password" placeholder="Password" id="password" name="pwdid" autocomplete="off"/>
                           <div class="pw-display-toggle-btn">
                           <i class="fas fa-eye" id ="myEye" ></i>
@@ -159,141 +159,143 @@ const phone = document.getElementById('phone');
 
 
 function validate() {
+	console.log("validate")
 	// trim to remove the whitespaces
 	const firstnameValue = firstname.value.trim();
 	const lastnameValue = lastname.value.trim();
 	const emailValue = email.value.trim();
 	const passwordValue = password.value.trim();
+
+	let pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
 	
 	var alpha= /^[a-zA-Z]+/;
     var num = /[0-9]+/;
 	var space =/[\s]+/;
+	var firstNameFlag = false;
+	var lastNameFlag = false;
+	var emailFlag = false;
+	var passwordFlag = false;
 
     // First Name Validation
 
     if(firstnameValue === '' || (firstnameValue.length<=2)) 
 	{
 		setErrorFor(firstname, 'Firstname should be more than 2 alphabets');
-		return false;
+		
 	}
 	
 	else if (firstnameValue.length>20) 
 	{
 		setErrorFor(firstname, 'Firstname should be less than 20 alphabets');
-				return false;
+				
 	}
 	else if(!firstnameValue.match(alpha))  
 	{
 			setErrorFor(firstname, 'Remove special characters');
-					return false;
+					
 	} 
     else if(firstname.value.match(space))
 	{
 			setErrorFor(firstname, 'Remove Spaces');
-					return false;
+					
 	} 
     else if(firstnameValue.match(num))
 	{
 			setErrorFor(firstname, 'Remove numbers');
-					return false;
+					
 	} 
 	
 	else 
 	{
+		firstNameFlag = true;
 		setSuccessFor(firstname);
+	}
 
                 // Last Name Validation
 
 				if(lastnameValue === '' || (lastnameValue.length<=2))
 				{
 				setErrorFor(lastname, 'Lastname should more than 2 alphabets');
-						return false;
+						
 
 				}  
 				
 				else if (lastnameValue.length>20) 
 				{
 					setErrorFor(lastname, 'Lastname should be less than 20 alphabets');
-							return false;
+							
 				}
 				else if(!lastnameValue.match(alpha))
 				{
 					setErrorFor(lastname, 'Remove special characters');
-							return false;
+							
 
 				} 
                 else if(lastname.value.match(space)) 
 				{
 					setErrorFor(lastname, 'Remove spaces');
-							return false;
+							
 
 				} 
                 else if(lastnameValue.match(num))
 				{
 					setErrorFor(lastname, 'Remove numbers');
-							return false;
+							
 
 				} 
 				
 				else 
 				{
+					lastNameFlag = true;
 					setSuccessFor(lastname);
+				}
 
                     // Email Validation
 
 					if(emailValue === '') 
 					{
 						setErrorFor(email, 'Email cannot be blank');
-								return false;
+								
 
 					}
                     else if (email.value.match(space)) 
 					{
 						setErrorFor(email, 'Remove spaces');
-								return false;
+								
 
 					}
                      else if (!isEmail(emailValue)) 
 					{
 						setErrorFor(email, 'Not a valid email');
-								return false;
+								
 
 					}
                      else 
 					{
+						emailFlag = true;
 						setSuccessFor(email);
 
-                                
-
-										if(passwordValue === '') 
-										{
-											setErrorFor(password, 'Password cannot be blank');
-													return false;
-
+					}       
+										console.log("password.value :",passwordValue)
+										console.log("validate test pwd exp: ",pwdRegex.test(passwordValue))
+										if (!(pwdRegex.test(passwordValue))) {
+											setErrorFor(password, 'Atleast 8 characters with atleast one lowercase, uppercase and a number without special characters');
 										}
-										else if(password.value.match(space)) 
-										{
-											setErrorFor(password, 'Remove spaces');
-													return false;
-
-										} 
-                                        else if(passwordValue.length  <8) 
-                                        {
-											setErrorFor(password, 'Atleast 8 characters are required');
-													return false;
-
-										} 
 										 else 
 										{
+											passwordFlag = true;
 											setSuccessFor(password);
 
-												return true;
-
 											}
-										}
-									}
-					}
-				}
+	if (firstNameFlag && lastNameFlag && emailFlag && passwordFlag) {
+		return true;
+	} else {
+		return false;
+	}
+										
+										}							
+					
+				
 	
 
 function setErrorFor(input, message) {

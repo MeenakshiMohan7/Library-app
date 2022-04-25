@@ -92,13 +92,13 @@
                   onsubmit="return validate()" class="form">
                       
                       <div class="mb-3 form-control">
-                        <label for="username">Username</label>
+                        <!-- <label for="username">Username</label> -->
                         <input type="email" placeholder="Enter Email" id="email" name="userid"  autocomplete="off" accept="text/plain"/>
                         <small>Error message</small>
                       </div>
                       <br>
                       <div class="mb-3 form-control">
-                          <label for="Password">Password</label>
+                          <!-- <label for="Password">Password</label> -->
                           <input type="password" placeholder="Password" id="password" name="pwdid" class="passwordInput" autocomplete="off"/>
                           <small>Error message</small>
                       </div>
@@ -169,44 +169,39 @@ function validate() {
 	var alpha= /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 	var space =/[\s]+/;
 
+  let pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
+  var emailFlag = false;
+	var passwordFlag = false;
+
 	if(emailValue === '') {
 		setErrorFor(email, 'Email cannot be blank');
-        return false;
+        
 	} else if (!isEmail(emailValue)) {
 		setErrorFor(email, 'Not a valid email');
-        return false;
+        
 	} else {
-		setSuccessFor(email);
-        console.log('Bingo1');
-        if(passwordValue != '')
-		 	{
-            if(passwordValue.length <8) {
-                setErrorFor(password, 'Atleast 8 characters are required');
-                return false;
-            }   else if (password.value.match(space)) 
-            {
-                setErrorFor(password, 'Remove spaces');
-                return false;
-            } 
-            else if(passwordValue.match(alpha)) 
-	        {
-                setSuccessFor(password);
-                console.log('Bingo2');
-                return true;
-	        } 
-            else {
-                setErrorFor(password, 'Please add atleast one special characters and use numbers, uppercase and lowercase.');
-				return false;
-                
-            }
-            
-        } 
-        else{
-            setErrorFor(password, 'Re-enter correct password. Password cannot be blank');
-            return false;
-        }
+    emailFlag = true;
+		setSuccessFor(email); 
+  }
+  
+  console.log("pass: ",passwordValue)
+  console.log("exp: ",pwdRegex.test(passwordValue))
+  if (!(pwdRegex.test(passwordValue)) ) {
+											setErrorFor(password, 'Atleast 8 characters with atleast one lowercase, uppercase and a number without special characters');
+										}
+										 else 
+										{
+											passwordFlag = true;
+											setSuccessFor(password);
 
-	}
+											} 
+ if (emailFlag && passwordFlag) {
+   return true;
+ } else {
+   return false;
+ }
+ 
+	
 
 	
 }
